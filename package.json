@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/linct96/easy-tiny/issues"
   },
-  "homepage": "https://github.com/linct96/easy-tiny#readme"
+  "homepage": "https://github.com/linct96/easy-tiny#readme",
+  "devDependencies": {
+    "commander": "^6.0.0"
+  }
 }
