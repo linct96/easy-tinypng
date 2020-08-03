@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: linchaoting
  * @Date: 2020-08-01 10:07:33
- * @LastEditTime: 2020-08-01 18:32:00
+ * @LastEditTime: 2020-08-03 11:54:04
  */
 const path = require('path')
 const Listr = require('listr');
@@ -18,7 +18,6 @@ const mockDownload = (time) => {
       resolve()
     }, time);
   })
-
 }
 
 
@@ -34,11 +33,12 @@ const compressTask = (imgList) => {
         task.title = `upload ${basicTitle}`
         const res = await upload(fileInfo.path)
         const resObj = JSON.parse(res)
+        fileInfo.compressInfo=resObj.output
+        ctx.uploadResList.push(res)
         if (resObj.output.ratio > 0.9) {
           task.skip(`unnecessary compress ${resObj.output.ratio}`)
-          task.title = `unnecessary ${basicTitle}`
+          task.title = `unnecessary compress ${basicTitle}`
         } else {
-          ctx.uploadResList.push(res)
           task.title = `download ${basicTitle}`
           await mockDownload(Math.random() * 5000 + 3000)
           task.title = `success ${basicTitle}`
@@ -71,7 +71,7 @@ const tinyTask = new Listr([
   // },
 ]);
 tinyTask.run().then(res => {
-  // console.log(res)
+  console.log(res)
 }).catch(err => {
   console.log('捕获错误')
 })
