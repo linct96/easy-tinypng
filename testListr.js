@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: linchaoting
  * @Date: 2020-08-01 10:07:33
- * @LastEditTime: 2020-08-03 11:54:04
+ * @LastEditTime: 2020-08-04 13:50:03
  */
 const path = require('path')
 const Listr = require('listr');
@@ -19,9 +19,6 @@ const mockDownload = (time) => {
     }, time);
   })
 }
-
-
-
 
 const compressTask = (imgList) => {
   const uploadTaskParams = []
