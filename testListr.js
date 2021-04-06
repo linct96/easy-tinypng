@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: linchaoting
  * @Date: 2020-08-01 10:07:33
- * @LastEditTime: 2020-08-04 13:50:03
+ * @LastEditTime: 2021-02-03 16:26:33
  */
 const path = require('path')
 const Listr = require('listr');
@@ -37,7 +37,8 @@ const compressTask = (imgList) => {
           task.title = `unnecessary compress ${basicTitle}`
         } else {
           task.title = `download ${basicTitle}`
-          await mockDownload(Math.random() * 5000 + 3000)
+          // await mockDownload(Math.random() * 5000 + 3000)
+          download(resObj.output.url,fileInfo.path)
           task.title = `success ${basicTitle}`
         }
       }
@@ -54,7 +55,7 @@ const tinyTask = new Listr([
     title: 'found 0 files',
     task: (ctx, task) => {
       const imgPathList = fileDisplay('./', fileInfo => {
-        return fileInfo.extname ==='.jpg'
+        return fileInfo.extname ==='.png'
       })
       ctx.imgPathList = imgPathList
       ctx.uploadResList = []

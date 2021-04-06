@@ -2,11 +2,13 @@
  * @Description: 
  * @Author: linchaoting
  * @Date: 2020-07-28 09:46:54
- * @LastEditTime: 2020-07-30 15:09:21
+ * @LastEditTime: 2021-04-06 17:49:00
  */ 
 const pkg = require('../package.json')
-const { program } = require('commander');
-program.name('tiny')
+const { Command } = require('commander');
+
+const program = new Command();
+
 program.version(pkg.version);
 program.requiredOption('-i --input <path>','input file path')
 program.option('-o --output <path>','output file path')
