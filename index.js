@@ -2,10 +2,6 @@
  * @Description: 
  * @Author: linchaoting
  * @Date: 2020-07-27 23:21:58
- * @LastEditTime: 2020-07-31 11:57:45
+ * @LastEditTime: 2021-04-06 19:37:21
  */
-const upload = require('./lib/upload')
-function hello(name){
-  console.log("hello "+ name);
-}
-exports=tiny;
+exports=require('./lib/tiny');
